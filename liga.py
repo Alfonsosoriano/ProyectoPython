@@ -88,3 +88,25 @@ def Clasificacion(datos):
             ordenados.append(equipo)
 
     return ordenados
+
+
+def impClasificacion(liga):
+    """Imprime la clasificación final por pantalla."""
+    equipos = Equipos(liga)
+    datos = InfoEquipos(liga, equipos)
+    clasificacion = Clasificacion(datos)
+
+    print("CLASIFICACIÓN FINAL")
+    print("Pos  Equipo                 G   E   P   Pts")
+    print("---------------------------------------------")
+
+    pos = 1
+    for fila in clasificacion:
+        equipo = fila[0]
+        ganados = fila[1]
+        empatados = fila[2]
+        perdidos = fila[3]
+        puntos = fila[4]
+
+        print(f"{pos:<4} {equipo:<22} {ganados:<3} {empatados:<3} {perdidos:<3} {puntos:<3}")
+        pos = pos + 1
