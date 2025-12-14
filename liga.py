@@ -12,3 +12,12 @@ def LeerPartidos(ruta="liga.csv"):
                 partido[encabezados[i]] = fila[i]
             partidos.append(partido)
     return partidos
+
+def Equipos(datosliga):
+    """Devuelve un conjunto con todos los equipos de la liga."""
+    equipos = set()
+    for partido in datosliga:
+        equipos.add(partido['Team 1'])
+        equipos.add(partido['Team 2'])
+    return equipos
+
