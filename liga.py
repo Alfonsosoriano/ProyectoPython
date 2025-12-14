@@ -32,3 +32,9 @@ def QuienGana(resultado):
     if goles_local > goles_visitante:
         return 1
     return -1
+
+def Puntos(info):
+    """Calcula los puntos a partir de ganados y empatados."""
+    ganados = info[0]
+    empatados = info[1]
+    return ganados * 3 + empatados
