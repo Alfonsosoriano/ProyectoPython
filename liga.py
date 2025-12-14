@@ -38,3 +38,36 @@ def Puntos(info):
     ganados = info[0]
     empatados = info[1]
     return ganados * 3 + empatados
+
+def InfoEquipos(datosliga, equipos):
+    """Devuelve una lista con la información de cada equipo."""
+    info = []
+
+    for equipo in equipos:
+        ganados = 0
+        empatados = 0
+        perdidos = 0
+
+        for partido in datosliga:
+            resultado = QuienGana(partido['FT'])
+
+            if partido['Team 1'] == equipo:
+                if resultado == 1:
+                    ganados = ganados + 1
+                elif resultado == 0:
+                    empatados = empatados + 1
+                else:
+                    perdidos = perdidos + 1
+
+            if partido['Team 2'] == equipo:
+                if resultado == -1:
+                    ganados = ganados + 1
+                elif resultado == 0:
+                    empatados = empatados + 1
+                else:
+                    perdidos = perdidos + 1
+
+        puntos = Puntos([ganados, empatados, perdidos])
+        info.append((equipo, ganados, empatados, perdidos, puntos))
+
+    return info
