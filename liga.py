@@ -110,3 +110,8 @@ def impClasificacion(liga):
 
         print(f"{pos:<4} {equipo:<22} {ganados:<3} {empatados:<3} {perdidos:<3} {puntos:<3}")
         pos = pos + 1
+
+
+if __name__ == '__main__':
+    datos_liga = LeerPartidos()
+    impClasificacion(datos_liga)
