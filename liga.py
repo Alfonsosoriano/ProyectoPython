@@ -21,3 +21,14 @@ def Equipos(datosliga):
         equipos.add(partido['Team 2'])
     return equipos
 
+def QuienGana(resultado):
+    """Indica quién gana un partido según el resultado."""
+    partes = resultado.split('-')
+    goles_local = int(partes[0])
+    goles_visitante = int(partes[1])
+
+    if goles_local == goles_visitante:
+        return 0
+    if goles_local > goles_visitante:
+        return 1
+    return -1
