@@ -71,3 +71,20 @@ def InfoEquipos(datosliga, equipos):
         info.append((equipo, ganados, empatados, perdidos, puntos))
 
     return info
+
+
+def Clasificacion(datos):
+    """Ordena los equipos por puntos."""
+    ordenados = []
+
+    for equipo in datos:
+        insertado = False
+        for i in range(len(ordenados)):
+            if equipo[4] > ordenados[i][4]:
+                ordenados.insert(i, equipo)
+                insertado = True
+                break
+        if not insertado:
+            ordenados.append(equipo)
+
+    return ordenados
